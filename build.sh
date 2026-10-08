@@ -14,8 +14,6 @@ srcfile=$1
 [ -r "$srcfile" ] || { echo "$0: '$srcfile' is not readable" >&2; exit 1; }
 
 srcbase="${srcfile##*/}"
-srcdir="${srcfile%"$srcbase"}"
-srcdir="${srcdir:-.}"
 
 case "$srcfile" in
     /*) srcarg=$srcfile ;;
@@ -73,4 +71,4 @@ case "$srcbase" in
         ;;
 esac
 
-cp -- "$TMPDIR/$outname" "$srcdir/$outname"
+cp -- "$TMPDIR/$outname" "./$outname"
